@@ -57,51 +57,50 @@
           <img src="img/swelly_03.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
         </section>
 
-        <section>
+        <!-- <section>
           <h3>Swelly</h3>
           <img src="img/swelly_03.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/swelly_04.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/swelly_05.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
-        </section>
+        </section> -->
 
-        <section>
+        <!-- <section>
           <h3>Swelly</h3>
           <img src="img/swelly_06.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
-          <!-- <img src="img/swelly_07.png" class="plain" style="float:left;width:30%;margin-left:3%;"/> -->
           <img src="img/swelly_08.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/swelly_09.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
-        </section>
+        </section> -->
 
-        <section>
+        <!-- <section>
           <h3>Swelly</h3>
-          <!-- <img src="img/swelly_09.png" class="plain" style="float:left;width:30%;margin-left:3%;"/> -->
           <img src="img/swelly_10.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/swelly_11.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/swelly_12.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
-        </section>
+        </section> -->
 
         <section>
           <h3>Swelly</h3>
-          <!-- <img src="img/swelly_12.png" class="plain" style="float:left;width:30%;margin-left:3%;"/> -->
           <img src="img/swelly_13.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/swelly_14.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/swelly_15.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
         </section>
 
-        <!-- <section>
+        <section>
           <h3>Criando um bot no Facebook Messenger</h3>
           <ul>
             <li>Ter uma fanpage</li>
             <li>Ter uma conta facebook developer</li>
-            <li>Servidor aceitando requisições em https</li>
+            <li>Aplicação Web para receber as mensagens do messenger</li>
+            <li>Será gerado um PAGE_ACESS_TOKEN</li>
           </ul>
-        </section> -->
+        </section>
 
         <section>
-          <h1>Fluxo...</h1>
+          <!-- <h1>Fluxo...</h1> -->
+          <img class="plain" src="img/messenger_flow.png"/>
         </section>
         <section>
-          <h3>Exemplo de mensagem enviada pelo messenger para o servidor</h3>
+          <h3>Exemplo de mensagem enviada pelo messenger para a sua aplicação</h3>
           <pre>
             <code data-trim data-noescape style="max-height:512px">
             {
@@ -112,9 +111,9 @@
                   "time":1458692752478,
                   "messaging":[
                     {
-                      "sender":{ "id":"USER_ID" },
+                      "sender":{ "id":"USER_ID" }, // <--- IMPORTANTE 
                       "recipient":{ "id":"PAGE_ID" },
-                      ...
+                      ... Mensagem, Arquivos e Botões
                     }
                   ]
                 }
@@ -131,7 +130,7 @@
           <img src="img/messenger_greeting_text_sample_03.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/messenger_greeting_text_sample_04.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
         </section>
-        <section>
+        <!-- <section>
           <h3>Greeting Text</h3>
           <p>Fazer um requisição POST para</p>
           <p>https://graph.facebook.com/v2.6/me/<strong>thread_settings</strong>?access_token=<strong>PAGE_ACCESS_TOKEN</strong></PAGE_ACCESS_TOKEN></p>
@@ -145,7 +144,7 @@
               }
             </code>
           </pre>
-        </section>
+        </section> -->
 
         <section>
           <h3>Mensagem Simples</h3>
@@ -155,7 +154,7 @@
           <img src="img/messenger_text_sample_01.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
         </section>
         <section>
-          <h3>Mensagem Simples - Texto</h3>
+          <h3>Mensagem Simples</h3>
           <p>Fazer um requisição POST para</p>
           <p>https://graph.facebook.com/v2.6/me/<strong>messages</strong>?access_token=<strong>PAGE_ACCESS_TOKEN</strong></PAGE_ACCESS_TOKEN></p>
           <pre>
@@ -171,7 +170,7 @@
             </code>
           </pre>
         </section>
-        <section>
+        <!-- <section>
           <h3>Mensagem Simples - Imagem</h3>
           <p>Fazer um requisição POST para</p>
           <p>https://graph.facebook.com/v2.6/me/<strong>messages</strong>?access_token=<strong>PAGE_ACCESS_TOKEN</strong></PAGE_ACCESS_TOKEN></p>
@@ -214,7 +213,7 @@
               }
             </code>
           </pre>
-        </section>
+        </section> -->
 
         <section>
           <h3>Quick Replies</h3>
@@ -229,19 +228,20 @@
             <code data-trim data-noescape style="max-height:512px">
             {
               "recipient":{
-                "id":"<PSID>"
+                "id":"USER_ID"
               },
               "message":{
                 "quick_replies":[
                   {
                     "content_type":"text",
                     "title":"Sim",
-                    "payload":"VAI_NO_RANCHODEV",
                   },
                   {
                     "content_type":"text",
                     "title":"Não",
-                    "payload":"NAO_VAI_NO_RANCHODEV"
+                  },
+                  {
+                    "content_type":"location"
                   }
                 ]
               }
@@ -249,7 +249,7 @@
             </code>
           </pre>
         </section>
-        <section>
+        <!-- <section>
           <h3>Quick Replies - Localização</h3>
           <pre>
             <code data-trim data-noescape style="max-height:512px">
@@ -267,7 +267,7 @@
             }
             </code>
           </pre>
-        </section>
+        </section> -->
 
         <section>
           <h3>Modelo de Botões</h3>
@@ -329,19 +329,6 @@
         </section>
 
         <section>
-          <h3>WebView</h3>
-          <p>Uma forma de criar interações customizadas</p>
-          <img src="img/messenger_webview_sample_01.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
-          <img src="img/messenger_webview_sample_02.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
-          <img src="img/messenger_webview_sample_03.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
-        </section>
-        <section>
-          <h3>WebView</h3>
-          <img src="img/messenger_webview_code_01.png" class="plain"/>
-          <img src="img/messenger_webview_code_02.png" class="plain"/>
-        </section>
-
-        <section>
           <h3>Modelo Genérico</h3>
           <p>Enviar carrossel junto da resposta</p>
           <img src="img/messenger_generic_sample_01.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
@@ -355,6 +342,19 @@
           <img src="img/messenger_list_sample_02.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
           <img src="img/messenger_list_sample_03.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
         </section>
+
+        <section>
+          <h3>WebView</h3>
+          <p>Uma forma de criar interações customizadas</p>
+          <img src="img/messenger_webview_sample_01.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
+          <img src="img/messenger_webview_sample_02.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
+          <img src="img/messenger_webview_sample_03.png" class="plain" style="float:left;width:30%;margin-left:3%;"/>
+        </section>
+        <!-- <section>
+          <h3>WebView</h3>
+          <img src="img/messenger_webview_code_01.png" class="plain"/>
+          <img src="img/messenger_webview_code_02.png" class="plain"/>
+        </section> -->
         
         <section>
           <h3>Vinculação de Conta</h3>
